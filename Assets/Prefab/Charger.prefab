@@ -35,6 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4248983812991080}
+  - component: {fileID: 114987396329001570}
   - component: {fileID: 114909536056148990}
   - component: {fileID: 114667251920939398}
   m_Layer: 10
@@ -135,10 +136,38 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: e32388735daf93248b998e9aee89c3c4, type: 2}
   stateIndicatorHolder: {fileID: 4268235380866504}
   fov: {fileID: 0}
+  agent: {fileID: 0}
   waypoints: []
   nextWaypointIndex: 0
   bIsCyclicalPath: 0
   priorityOOI: {fileID: 0}
+--- !u!114 &114987396329001570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1929443546334604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cc6a4987f7c684798156c56d545838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _map: {fileID: 0}
+  maxSpeed: 3.5
+  mass: 20
+  stoppingDistance: 0.1
+  slowingDistance: 1
+  accelerationRate: 2
+  decelerationRate: 2
+  lookAheadDistance: 1
+  avoidRadius: 0.82
+  centerOffset: {x: 0, y: 0}
+  rotateTransform: 0
+  rotateSpeed: 350
+  repath: 1
+  restrict: 0
+  closerPointOnInvalid: 1
+  debugPath: 1
 --- !u!212 &212823279610292288
 SpriteRenderer:
   m_ObjectHideFlags: 1

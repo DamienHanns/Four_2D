@@ -8,7 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c94966a1299ea62409f9718b433fabee, type: 3}
-  m_Name: PatrolAction
+  m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
+  m_Name: ChargerChasingState
   m_EditorClassIdentifier: 
-  pauseTimeAtEndOfRoute: 0
+  actions: []
+  transitions: []
+  stateIndicatorColour: {r: 0.63235295, g: 0.43148792, b: 0.13019033, a: 1}
