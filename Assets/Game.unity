@@ -354,12 +354,12 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -3.6025045, y: 12.907061}
-      - {x: -14.818519, y: 7.1046267}
+      - {x: -17.576687, y: 8.801959}
       - {x: -16.199743, y: -5.492113}
       - {x: -5.2839375, y: -6.775893}
       - {x: 1.6557506, y: -6.2234044}
-      - {x: 16.7757, y: -3.6819577}
-      - {x: 16.36549, y: 5.5576587}
+      - {x: 16.917145, y: -5.450012}
+      - {x: 16.789822, y: 8.6694355}
       - {x: 8.078158, y: 9.977567}
 --- !u!114 &361983210
 MonoBehaviour:
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2437236b35d9334c91621b48e7956a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 3.65
+  viewRadius: 5
   viewAngle: 86
   targetMask:
     serializedVersion: 2
@@ -1064,10 +1064,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4907a0001f90e43a90f5b6a8358683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityStats: {fileID: 0}
+  entityStats: {fileID: 11400000, guid: b35f6b260258da94dadb0a69555cafcf, type: 2}
   currentState: {fileID: 11400000, guid: e32388735daf93248b998e9aee89c3c4, type: 2}
   remainInState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
   stateIndicatorHolder: {fileID: 461154719}
+  myrb: {fileID: 0}
   agent: {fileID: 0}
   waypoints: []
   nextWaypointIndex: 0
@@ -1090,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 0}
-  maxSpeed: 10
+  maxSpeed: 7
   mass: 20
   stoppingDistance: 0.1
   slowingDistance: 1
@@ -1113,7 +1114,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2061834299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4, y: -2.44, z: 0}
+  m_LocalPosition: {x: -11.9, y: 4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 821737667}

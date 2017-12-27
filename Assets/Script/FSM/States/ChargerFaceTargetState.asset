@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
   m_Name: ChargerFaceTargetState
   m_EditorClassIdentifier: 
-  actions: []
-  transitions: []
-  stateIndicatorColour: {r: 0, g: 0, b: 0, a: 0}
+  actions:
+  - {fileID: 11400000, guid: afae77521f85fc242941127d49cd8596, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: c15e321dacefe4d4f8c7e52b89f148ac, type: 2}
+    trueState: {fileID: 11400000, guid: 689f214bf09679f4693d86ce816ca7b0, type: 2}
+    falseState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
+  stateIndicatorColour: {r: 0, g: 0, b: 0, a: 1}

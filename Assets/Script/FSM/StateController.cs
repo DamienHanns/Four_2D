@@ -17,6 +17,7 @@ public class StateController : MonoBehaviour {
     [HideInInspector] public int nextWaypointIndex = 0;
     public bool bIsCyclicalPath;
     public bool bHasPath;
+    public bool bIsAttacking;
     public Transform waypointHolder;
 
     public float stateTimeElapsed;

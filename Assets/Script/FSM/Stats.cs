@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Stats : ScriptableObject {
-    [SerializeField] float moveSpeed;
-    [SerializeField] float chaseSpeed;
-    [SerializeField] float chargeSpeed;
+
+    public float moveSpeed;
+    public float chaseSpeed;
+ 
+    public float attackRange;
 
     public float stallTime;
-    public float attackRange;
+    public float findTargetStallTime;
+
+    public float chargeSpeed;
+    
 }

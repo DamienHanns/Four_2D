@@ -9,9 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
-  m_Name: ChargerAttackStallState
+  m_Name: ChargerAttackState
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 11400000, guid: d1c67fac193dc7b43bf880a867ec0bc3, type: 2}
+  actions: []
   transitions: []
-  stateIndicatorColour: {r: 0.17841695, g: 0.36764705, b: 0.36764705, a: 1}
+  stateIndicatorColour: {r: 0, g: 0, b: 0, a: 0}
