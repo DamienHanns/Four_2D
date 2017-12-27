@@ -14,4 +14,5 @@ public class Stats : ScriptableObject {
 
     public float chargeSpeed;
     
+
 }

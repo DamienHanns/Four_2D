@@ -18,6 +18,7 @@ public class StateController : MonoBehaviour {
     public bool bIsCyclicalPath;
     public bool bHasPath;
     public bool bIsAttacking;
+    public bool bPrimaryStateActionFinished;
     public Transform waypointHolder;
 
     public float stateTimeElapsed;
@@ -68,10 +69,17 @@ public class StateController : MonoBehaviour {
             OnExitState();
         }
 
-        bHasPath = false;
+        ResetControllerVeriables();
         StopAllCoroutines();        //TODO check if stopping coroutines is nessesary
-        stateTimeElapsed = 0.0f;
         agent.Stop();
+    }
+
+    private void ResetControllerVeriables()
+    {
+        bHasPath = false;
+        bIsAttacking = false;
+        bPrimaryStateActionFinished = false;
+        stateTimeElapsed = 0.0f;
     }
 
     void GetWaypoints()

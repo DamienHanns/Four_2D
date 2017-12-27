@@ -16,6 +16,7 @@ public class ChasingAction : Action {
         float repathTime = 0.25f;
         controller.bHasPath = true;
 
+
         while (controller.bHasPath)
         {
             if (controller.priorityOOI != null)
@@ -29,5 +30,4 @@ public class ChasingAction : Action {
 
         controller.agent.Stop();
     }
-
 }

@@ -14,12 +14,13 @@ public class ChargeForwardAction : Action {
 
     IEnumerator ChargeForward(StateController controller)
     {
-        controller.bIsAttacking = true;
+        controller.bIsAttacking = true;         //gets set to false on state change
         controller.myrb.bodyType = RigidbodyType2D.Dynamic;
         controller.myrb.simulated = true;
         controller.myrb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-        float chargeTime = 2.0f + Time.time;
+        float chargeTime = 2.0f + Time.time;         
+
         Vector2 forward = controller.stateIndicatorHolder.position - controller.transform.position; 
 
         while (Time.time < chargeTime)
@@ -32,7 +33,9 @@ public class ChargeForwardAction : Action {
         controller.myrb.bodyType = RigidbodyType2D.Kinematic;
         controller.myrb.simulated = false;
         controller.myrb.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
-     //   controller.bIsAttacking = false;
-
+        controller.myrb.velocity = Vector3.zero;
+        controller.bPrimaryStateActionFinished = true;
     }
+
+
 }
