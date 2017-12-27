@@ -60,5 +60,7 @@ public class PatrolAction : Action {
             yield return new WaitForSeconds(repathTime);
 
         }
+
+        controller.agent.Stop();
     }
 }

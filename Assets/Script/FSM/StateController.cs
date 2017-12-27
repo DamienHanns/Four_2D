@@ -10,7 +10,8 @@ public class StateController : MonoBehaviour {
     public State currentState;
     public State remainInState;
     public Transform stateIndicatorHolder;
-    
+
+    [HideInInspector] public Rigidbody2D myrb;
     [HideInInspector] public PolyNavAgent agent;
     [HideInInspector] public Vector3[] waypoints;
     [HideInInspector] public int nextWaypointIndex = 0;
@@ -26,6 +27,7 @@ public class StateController : MonoBehaviour {
 
     private void Start()
     {
+        myrb = GetComponent<Rigidbody2D>() ? GetComponent<Rigidbody2D>() : null;
         agent = GetComponent<PolyNavAgent>() ? GetComponent<PolyNavAgent>() : null;
         fov = GetComponent<FOV>() ? GetComponent<FOV>() : null;
         if (waypointHolder != null) { GetWaypoints(); }
@@ -68,6 +70,7 @@ public class StateController : MonoBehaviour {
         bHasPath = false;
         StopAllCoroutines();        //TODO check if stopping coroutines is nessesary
         stateTimeElapsed = 0.0f;
+        agent.Stop();
     }
 
     void GetWaypoints()

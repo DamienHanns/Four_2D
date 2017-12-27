@@ -9,7 +9,6 @@ public class ChasingAction : Action {
     public override void Act(StateController controller)
     {
         if (!controller.bHasPath) { controller.StartCoroutine(Chase(controller)); }
-        Debug.Log(controller.priorityOOI);
     }
 
     IEnumerator Chase(StateController controller)
@@ -27,6 +26,8 @@ public class ChasingAction : Action {
 
             yield return new WaitForSeconds(repathTime);
         }
+
+        controller.agent.Stop();
     }
 
 }
