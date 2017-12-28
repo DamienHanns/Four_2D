@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateController : MonoBehaviour {
+public class StateController : MonoBehaviour {          //TODO use statecontoller as base class?
 
     public event System.Action OnExitState;     //TODO get rid of this
 

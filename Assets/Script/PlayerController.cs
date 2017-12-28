@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Rigidbody2D), typeof (CircleCollider2D))] 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : LivingEnitity {
 
     CircleCollider2D myColl;
     Rigidbody2D myrb2d;

@@ -13,7 +13,7 @@ public class ChasingAction : Action {
 
     IEnumerator Chase(StateController controller)
     {
-        float repathTime = 0.25f;
+        float repathTime = 0.2f;
         controller.bHasPath = true;
 
 

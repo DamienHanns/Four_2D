@@ -8,7 +8,7 @@ public class StallAction : Action {
 
     public override void Act(StateController controller)
     {
-        Debug.Log(controller.gameObject.name + " Stalling Action");
+        Debug.Log(controller.gameObject.name + " In Stalling Action");
     }
 
 }
