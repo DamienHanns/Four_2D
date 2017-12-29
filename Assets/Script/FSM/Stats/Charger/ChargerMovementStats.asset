@@ -8,6 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc79e6b110ad574fa358fa261cdf4d7, type: 3}
-  m_Name: ChargeForwardAction
+  m_Script: {fileID: 11500000, guid: 024a1c8863c512341b617fceecc88249, type: 3}
+  m_Name: ChargerMovementStats
   m_EditorClassIdentifier: 
+  moveSpeed: 5
+  chaseSpeed: 7.5

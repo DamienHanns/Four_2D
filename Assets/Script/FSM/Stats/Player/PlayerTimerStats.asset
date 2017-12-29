@@ -8,6 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc79e6b110ad574fa358fa261cdf4d7, type: 3}
-  m_Name: ChargeForwardAction
+  m_Script: {fileID: 11500000, guid: d11846391219e9d4d8f37bed02217d3a, type: 3}
+  m_Name: PlayerTimerStats
   m_EditorClassIdentifier: 
+  stallTime: 0
+  findTargetStallTime: 0

@@ -8,6 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc79e6b110ad574fa358fa261cdf4d7, type: 3}
-  m_Name: ChargeForwardAction
+  m_Script: {fileID: 11500000, guid: 72ae3114c84434a44bd5a1c82023b417, type: 3}
+  m_Name: PlayerAttackingStats
   m_EditorClassIdentifier: 
+  meleeAttackDamage: 3
+  meleeAttackRange: 0
+  rangedAttackDamage: 1
+  rangedAttackRange: 0
+  chargeSpeed: 0

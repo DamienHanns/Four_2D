@@ -27,7 +27,7 @@ public class PatrolAction : Action {
         while (controller.bHasPath)
         {
 
-            if (controller.agent.remainingDistance <= controller.agent.stoppingDistance)
+            if (controller.agent.remainingDistance <= controller.agent.slowingDistance / 2)
             {
                 if (controller.bIsCyclicalPath)             //TODO switch on and off after a number patrols to introduce randomness
                 {
@@ -42,6 +42,7 @@ public class PatrolAction : Action {
                     nextWaypoint = controller.waypoints[controller.nextWaypointIndex];
                     controller.agent.SetDestination(nextWaypoint);
 
+                    
                 }
                 else
                 {

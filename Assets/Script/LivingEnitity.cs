@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof(StateController))]
 public class LivingEnitity : MonoBehaviour, IDamageable {
 
-    [SerializeField] protected Stats stats;
+    [SerializeField] protected EntityStats stats;
+    [SerializeField] protected bool bActivateAIOnStart = true;
+    [SerializeField] protected State startingState;
+    protected StateController stateController;
+
     protected float currentHealth = 1.0f;
 
     private void Awake()
     {
-        currentHealth = stats.maxHealth;
+        currentHealth = stats.healthStats.maxHealth;
+        stateController = GetComponent<StateController>();
+    }
+
+    protected virtual void SetupStateContoller()
+    {
+        stateController.SetupStateController(stats);
     }
 
     public void TakeDamage(float damage)

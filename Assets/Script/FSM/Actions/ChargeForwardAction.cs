@@ -25,7 +25,7 @@ public class ChargeForwardAction : Action {
 
         while (Time.time < chargeTime)
         {
-            controller.myrb.velocity = (forward * controller.entityStats.chargeSpeed) * Time.fixedDeltaTime;
+            controller.myrb.velocity = (forward * controller.entityStats.attackingStats.chargeSpeed) * Time.fixedDeltaTime;
 
             yield return new WaitForFixedUpdate();
         }

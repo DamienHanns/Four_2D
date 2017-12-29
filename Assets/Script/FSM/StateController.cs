@@ -6,7 +6,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
     public event System.Action OnExitState;     //TODO get rid of this
 
-    public Stats entityStats;
+    public EntityStats entityStats;
     public State currentState;
     public State remainInState;
     public Transform stateIndicatorHolder;
@@ -16,15 +16,14 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     [HideInInspector] public Vector3[] waypoints;
     [HideInInspector] public int nextWaypointIndex = 0;
     public bool bIsCyclicalPath;
-    public bool bHasPath;
-    public bool bIsAttacking;
-    public bool bPrimaryStateActionFinished;
+    [HideInInspector] public bool bHasPath;
+    [HideInInspector] public bool bIsAttacking;
+    [HideInInspector] public bool bPrimaryStateActionFinished;
     public Transform waypointHolder;
 
-    public float stateTimeElapsed;
-
+    [HideInInspector] float stateTimeElapsed;
     [HideInInspector] public FOV fov;
-    public Transform priorityOOI;
+    [HideInInspector] public Transform priorityOOI;
     bool bStateControllerActive;
 
     private void Start()
@@ -36,15 +35,36 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     }
 
     void Update () {
-        if (bStateControllerActive) { return; }
+        if ( ! bStateControllerActive) { return; }
         currentState.ExecuteState(this);
         Debug.Log(currentState);
 	}
 
-    public void SetupStateController(bool bActivateStateController, Transform _waypointHolder)
+    public void SetupStateController(bool bActivateStateController, EntityStats objectStats, State state, Transform _waypointHolder, bool bPutWaypointsIntoArray = true)
     {
         bStateControllerActive = bActivateStateController;
+        entityStats = objectStats;
         waypointHolder = _waypointHolder;
+        if (bPutWaypointsIntoArray) { GetWaypoints(); }
+
+        TransitionToState(state);
+    }
+
+    public void SetupStateController(Transform _waypointHolder, bool bPutWaypointsIntoArray = true)
+    {
+        waypointHolder = _waypointHolder;
+        if (bPutWaypointsIntoArray) GetWaypoints();
+    }
+
+    public void SetupStateController(bool bActivateStateController)
+    {
+        bStateControllerActive = bActivateStateController;
+    }
+
+    public void SetupStateController(EntityStats objectStats, bool bActivateStateController = true)
+    {
+        entityStats = objectStats;
+        bStateControllerActive = bActivateStateController;
     }
 
     public void TransitionToState(State nextState)

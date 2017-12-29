@@ -16,7 +16,7 @@ public class DistanceDecision : Decision {
     {
         float disToOOI = Vector2.Distance(controller.transform.position, controller.priorityOOI.position);
 
-        if (disToOOI < controller.entityStats.attackRange)
+        if (disToOOI < controller.entityStats.attackingStats.rangedAttackRange)
         {
             return true;
         } else

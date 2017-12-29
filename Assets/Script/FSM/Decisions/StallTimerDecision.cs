@@ -8,7 +8,7 @@ public class StallTimerDecision : Decision {
 
     public override bool Decide(StateController controller)
     {
-       bool bTimeRanOut = controller.CheckIfCountDownElapsed(controller.entityStats.stallTime);
+       bool bTimeRanOut = controller.CheckIfCountDownElapsed(controller.entityStats.timerStats.stallTime);
        return bTimeRanOut;
     }
 

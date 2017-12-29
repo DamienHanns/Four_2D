@@ -13,5 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: d1c67fac193dc7b43bf880a867ec0bc3, type: 2}
-  transitions: []
-  stateIndicatorColour: {r: 0.17841695, g: 0.36764705, b: 0.36764705, a: 1}
+  transitions:
+  - decision: {fileID: 11400000, guid: ef92b572b913d214e92e8c4cf09db2e7, type: 2}
+    trueState: {fileID: 11400000, guid: 98c7bb8cdc1555a47aa75a724f2f3834, type: 2}
+    falseState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
+  stateIndicatorColour: {r: 0.22837369, g: 0.7058823, b: 0.7058823, a: 1}
