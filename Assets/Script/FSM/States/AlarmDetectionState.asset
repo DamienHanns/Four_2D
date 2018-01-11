@@ -9,12 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
-  m_Name: ChargerChasingState
+  m_Name: SensorDetectionState
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 11400000, guid: c7ab725bd077ede4d9cff6273be8ed85, type: 2}
+  actions: []
   transitions:
-  - decision: {fileID: 11400000, guid: 32f6172367b87414586388de0dc83c1d, type: 2}
-    trueState: {fileID: 11400000, guid: bb1ab4fd21aa3444a8976ff7160696e7, type: 2}
+  - decision: {fileID: 11400000, guid: 5b8a5483e3be4924cbaae631e518d332, type: 2}
+    trueState: {fileID: 11400000, guid: f16836874123ada4294aa00bbf6b6702, type: 2}
     falseState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
-  stateIndicatorColour: {r: 0.63235295, g: 0.43148792, b: 0.13019033, a: 1}
+  stateIndicatorColour: {r: 0.05298442, g: 0.113485806, b: 0.5147059, a: 0}

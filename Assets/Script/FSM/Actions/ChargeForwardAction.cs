@@ -9,12 +9,12 @@ public class ChargeForwardAction : Action {
 
     public override void Act(StateController controller)
     {
-        if( ! controller.bIsAttacking) { controller.StartCoroutine(ChargeForward(controller)); } 
+        if( ! controller.bHasStatedAction) { controller.StartCoroutine(ChargeForward(controller)); } 
     }
 
     IEnumerator ChargeForward(StateController controller)
     {
-        controller.bIsAttacking = true;         //gets set to false on state change
+        controller.bHasStatedAction = true;         //gets set to false on state change
         controller.myrb.bodyType = RigidbodyType2D.Dynamic;
         controller.myrb.simulated = true;
         controller.myrb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;

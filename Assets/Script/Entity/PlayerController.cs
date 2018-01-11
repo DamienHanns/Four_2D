@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Rigidbody2D), typeof (CircleCollider2D))] 
-public class PlayerController : LivingEnitity {
+public class PlayerController : DestructableEnitity {
 
     CircleCollider2D myColl;
     Rigidbody2D myrb2d;
     public float moveSpeed = 10.0f;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         myColl = GetComponent<CircleCollider2D>();
         myrb2d = GetComponent<Rigidbody2D>();
     }

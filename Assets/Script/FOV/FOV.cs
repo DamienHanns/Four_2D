@@ -7,8 +7,8 @@ public class FOV : MonoBehaviour {
     [SerializeField] public float viewRadius;
     [SerializeField] [Range(0.0f, 360.0f)] public float viewAngle;
 
-    [SerializeField] LayerMask targetMask;
-    [SerializeField] LayerMask obsticleMask;
+    [SerializeField] LayerMask objectsToLookForMask;
+    public LayerMask obsticleMask;
 
     public List<Transform> visableTagets = new List<Transform>();
     public bool bIsTargetInLOS;
@@ -33,7 +33,7 @@ public class FOV : MonoBehaviour {
         bIsTargetInLOS = false;
         visableTagets.Clear();
 
-        Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+        Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, objectsToLookForMask);
 
         for (int i = 0; i < targetsInViewRadius.Length; ++i)
         {

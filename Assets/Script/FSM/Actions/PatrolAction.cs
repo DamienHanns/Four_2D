@@ -11,7 +11,6 @@ public class PatrolAction : Action {
     public override void Act(StateController controller)
     {
         if ( ! controller.bHasPath )controller.StartCoroutine(Patrol(controller));
-        Debug.Log(controller.nextWaypointIndex);
     }
 
     IEnumerator Patrol(StateController controller)

@@ -17,7 +17,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     [HideInInspector] public int nextWaypointIndex = 0;
     public bool bIsCyclicalPath;
     [HideInInspector] public bool bHasPath;
-    [HideInInspector] public bool bIsAttacking;
+     public bool bHasStatedAction;
     [HideInInspector] public bool bPrimaryStateActionFinished;
     public Transform waypointHolder;
 
@@ -28,16 +28,18 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
     private void Start()
     {
+        if (remainInState == null) { Debug.LogWarning(gameObject.name + ": remainInState object not assigned"); }
+
         myrb = GetComponent<Rigidbody2D>() ? GetComponent<Rigidbody2D>() : null;
         agent = GetComponent<PolyNavAgent>() ? GetComponent<PolyNavAgent>() : null;
         fov = GetComponent<FOV>() ? GetComponent<FOV>() : null;
+
         if (waypointHolder != null) { GetWaypoints(); }
     }
 
     void Update () {
         if ( ! bStateControllerActive) { return; }
         currentState.ExecuteState(this);
-        Debug.Log(currentState);
 	}
 
     public void SetupStateController(bool bActivateStateController, EntityStats objectStats, State state, Transform _waypointHolder, bool bPutWaypointsIntoArray = true)
@@ -47,8 +49,10 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
         waypointHolder = _waypointHolder;
         if (bPutWaypointsIntoArray) { GetWaypoints(); }
 
+        currentState = state;
         TransitionToState(state);
     }
+    #region SetupStateControllerMethods
 
     public void SetupStateController(Transform _waypointHolder, bool bPutWaypointsIntoArray = true)
     {
@@ -61,11 +65,20 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
         bStateControllerActive = bActivateStateController;
     }
 
-    public void SetupStateController(EntityStats objectStats, bool bActivateStateController = true)
+    public void SetupStateController(EntityStats objectStats, State state, bool bActivateStateController = true)
+    {
+        SetupStateController(objectStats, bActivateStateController);
+        currentState = state;
+        TransitionToState(state);
+    }
+
+    public void SetupStateController(EntityStats objectStats,  bool bActivateStateController = true)
     {
         entityStats = objectStats;
         bStateControllerActive = bActivateStateController;
     }
+
+    #endregion
 
     public void TransitionToState(State nextState)
     {
@@ -91,13 +104,13 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
         ResetControllerVeriables();
         StopAllCoroutines();        //TODO check if stopping coroutines is nessesary
-        agent.Stop();
+        if (agent != null) { agent.Stop(); }
     }
 
     private void ResetControllerVeriables()
     {
         bHasPath = false;
-        bIsAttacking = false;
+        bHasStatedAction = false;
         bPrimaryStateActionFinished = false;
         stateTimeElapsed = 0.0f;
     }

@@ -8,11 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ae3114c84434a44bd5a1c82023b417, type: 3}
-  m_Name: ChargerAttackingStats
+  m_Script: {fileID: 11500000, guid: 6a4b0c35b4623284aa4ebdf5e93da93e, type: 3}
+  m_Name: ActiveStateDecision
   m_EditorClassIdentifier: 
-  meleeAttackDamage: 1
-  meleeAttackRange: 0
-  rangedAttackDamage: 0
-  rangedAttackRange: 3
-  chargeSpeed: 600
