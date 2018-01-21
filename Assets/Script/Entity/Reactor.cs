@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Reactor : MonoBehaviour {
 
-    public enum ReactorType { Alarm }; 
+    public enum ReactorType { Alarm, Investagate }; 
 }

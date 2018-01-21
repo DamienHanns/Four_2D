@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Decisions/Distance")]
-public class DistanceDecision : Decision {
+[CreateAssetMenu(menuName = "PluggableAI/Decisions/AttackDistance")]
+public class AttakDistanceDecision : Decision {
 
     public override bool Decide(StateController controller)
     {
@@ -16,7 +16,12 @@ public class DistanceDecision : Decision {
     {
         float disToOOI = Vector2.Distance(controller.transform.position, controller.priorityOOI.position);
 
-        if (disToOOI < controller.entityStats.attackingStats.rangedAttackRange)
+        //TODO change this to check for melee range first, then go on to ranged
+        if (disToOOI < controller.entityStats.attackingStats.meleeAttackRange)
+        {
+            return true;
+        }
+        else if (disToOOI < controller.entityStats.attackingStats.rangedAttackRange) 
         {
             return true;
         } else

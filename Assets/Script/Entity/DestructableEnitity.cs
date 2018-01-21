@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(StateController))]
+[RequireComponent(typeof(StateController))]
 public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
 
     [SerializeField] protected EntityStats stats;
     [SerializeField] protected bool bActivateAIOnStart = true;
     [SerializeField] protected State startingState;
+    [SerializeField] protected State reactAlarmState;
+    [SerializeField] protected State reactInvestageState;
     protected StateController stateController;
 
     protected bool bIsReactiongToSomething;
     protected int priorityOfCurrentReaction;
 
     protected float currentHealth = 1.0f;
-    
+
     protected virtual void Start()
     {
         if (stats != null) { currentHealth = stats.healthStats.maxHealth; }
@@ -40,7 +42,22 @@ public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
         }
     }
 
+    public void StopReacting()
+    {
+        bIsReactiongToSomething = false;
+        SetPriorityOfCurrentReactionValue(0);
+    }
+
+    public void SetPriorityOfCurrentReactionValue(int valueToSetTo)
+    {
+        priorityOfCurrentReaction = valueToSetTo;
+    }
+
     public virtual void React(Reactor.ReactorType reactionType, int priorityOfReaction, Transform reactorTransform = null)
+    {
+
+    }
+    public virtual void React(Reactor.ReactorType reactionToType, int priorityOfReaction, Transform transformToReactTo, Transform transformCallingReaction = null)
     {
 
     }

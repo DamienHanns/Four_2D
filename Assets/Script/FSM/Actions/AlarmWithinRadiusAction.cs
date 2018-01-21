@@ -18,24 +18,34 @@ public class AlarmWithinRadiusAction : Action {
     {
         controller.bHasStatedAction = true;
         float alarmAgainTIme = 0.2f;
-        Alarm sensor = controller.GetComponent<Alarm>();
+        Alarm alarm = controller.GetComponent<Alarm>();
        
-        if (sensor != null)
+        if (alarm != null)
         {
+            alarm.alarmPhase = Alarm.AlarmPhase.Alarming;
+            alarm.ChangeAlarmRadiusColour();
+
+            controller.onExitState += alarm.ChangeAlarmRadiusColour;
+            
             while (controller.bHasStatedAction)
             {
-                
-                Collider2D[] objectsInAlarmSoundRadius = Physics2D.OverlapCircleAll(controller.transform.position, sensor.sensorDectecionRadius, sensor.objectsToAlertMask);
+                Collider2D[] objectsInAlarmSoundRadius = Physics2D.OverlapCircleAll(controller.transform.position, alarm.sensorDectecionRadius, alarm.objectsToAlertMask);
                 for (int i = 0; i < objectsInAlarmSoundRadius.Length; ++i)
                 {
                     IReactable reactableObject = objectsInAlarmSoundRadius[i].GetComponent<IReactable>();
                     if (reactableObject != null)
                     {
-                        reactableObject.React(Reactor.ReactorType.Alarm, sensor.reactionPriorityValue, controller.transform);
+                        if (controller.fov.visableTagets.Count > 0)
+                        {
+                            Transform firstDetectedObject = controller.fov.visableTagets[0];
+                           
+                            reactableObject.React(Reactor.ReactorType.Alarm, alarm.reactionPriorityValue, firstDetectedObject, controller.transform);
+                        }
                     }
                     else { Debug.Log("IReactable = null on object : " + objectsInAlarmSoundRadius[i].gameObject.name); }
-                    
+
                 }
+               
                 yield return new WaitForSeconds(alarmAgainTIme);
             }
         }

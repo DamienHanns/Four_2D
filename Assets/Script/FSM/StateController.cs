@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StateController : MonoBehaviour {          //TODO use statecontoller as base class?
 
-    public event System.Action OnExitState;     //TODO get rid of this
+    public delegate void OnExitState();     
+    public event OnExitState onExitState;
 
     public EntityStats entityStats;
     public State currentState;
@@ -24,7 +25,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     [HideInInspector] float stateTimeElapsed;
     [HideInInspector] public FOV fov;
     [HideInInspector] public Transform priorityOOI;
-    bool bStateControllerActive;
+    public bool bStateControllerActive;
 
     private void Start()
     {
@@ -42,7 +43,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
         currentState.ExecuteState(this);
 	}
 
-    public void SetupStateController(bool bActivateStateController, EntityStats objectStats, State state, Transform _waypointHolder, bool bPutWaypointsIntoArray = true)
+    public void SetupStateController(bool bActivateStateController, EntityStats objectStats, State state, Transform _waypointHolder = null, bool bPutWaypointsIntoArray = true)
     {
         bStateControllerActive = bActivateStateController;
         entityStats = objectStats;
@@ -56,8 +57,11 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
     public void SetupStateController(Transform _waypointHolder, bool bPutWaypointsIntoArray = true)
     {
-        waypointHolder = _waypointHolder;
-        if (bPutWaypointsIntoArray) GetWaypoints();
+        if (_waypointHolder != null)
+        {
+            waypointHolder = _waypointHolder;
+            if (bPutWaypointsIntoArray) GetWaypoints();
+        } else { Debug.Log(transform.name + ": could not set up way points, the HOLDER was null"); }
     }
 
     public void SetupStateController(bool bActivateStateController)
@@ -97,18 +101,19 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
     void ExitState()
     {
-        if (OnExitState != null)
+        if (onExitState != null)
         {
-            OnExitState();
+            onExitState();
         }
 
         ResetControllerVeriables();
-        StopAllCoroutines();        //TODO check if stopping coroutines is nessesary
+        StopAllCoroutines();        
         if (agent != null) { agent.Stop(); }
     }
 
     private void ResetControllerVeriables()
     {
+        onExitState = null;
         bHasPath = false;
         bHasStatedAction = false;
         bPrimaryStateActionFinished = false;
@@ -117,14 +122,16 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
     void GetWaypoints()
     {
-        waypoints = new Vector3[waypointHolder.childCount];
-        for (int i = 0; i < waypoints.Length; ++i)
+        if (waypointHolder != null)
         {
-            waypoints[i] = waypointHolder.GetChild(i).position;
-            waypoints[i] = new Vector3(waypoints[i].x, waypoints[i].y, waypoints[i].z);
+            waypoints = new Vector3[waypointHolder.childCount];
+            for (int i = 0; i < waypoints.Length; ++i)
+            {
+                waypoints[i] = waypointHolder.GetChild(i).position;
+                waypoints[i] = new Vector3(waypoints[i].x, waypoints[i].y, waypoints[i].z);
+            }
+            if (nextWaypointIndex >= waypoints.Length) { nextWaypointIndex = 0; }
         }
-
-        if (nextWaypointIndex >= waypoints.Length) { nextWaypointIndex = 0; }
     }
 
     void OnDrawGizmos()

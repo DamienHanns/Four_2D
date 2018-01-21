@@ -6,4 +6,6 @@ public interface IReactable {
 
     void React(Reactor.ReactorType reactionToType, int priorityOfReaction, Transform reactorTransform = null);
 
+    void React(Reactor.ReactorType reactionToType, int priorityOfReaction, Transform transformToReactTo, Transform transformCallingReaction = null);
+
 }

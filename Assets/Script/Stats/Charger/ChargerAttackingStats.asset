@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ChargerAttackingStats
   m_EditorClassIdentifier: 
   meleeAttackDamage: 1
-  meleeAttackRange: 0
-  rangedAttackDamage: 0
-  rangedAttackRange: 3
+  meleeAttackRange: 5
+  rangedAttackDamage: 1
+  rangedAttackRange: 5
   chargeSpeed: 600

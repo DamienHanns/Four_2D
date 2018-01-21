@@ -16,7 +16,6 @@ public class ChargeForwardAction : Action {
     {
         controller.bHasStatedAction = true;         //gets set to false on state change
         controller.myrb.bodyType = RigidbodyType2D.Dynamic;
-        controller.myrb.simulated = true;
         controller.myrb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         float chargeTime = 2.0f + Time.time;         
@@ -31,7 +30,6 @@ public class ChargeForwardAction : Action {
         }
 
         controller.myrb.bodyType = RigidbodyType2D.Kinematic;
-        controller.myrb.simulated = false;
         controller.myrb.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
         controller.myrb.velocity = Vector3.zero;
         controller.bPrimaryStateActionFinished = true;

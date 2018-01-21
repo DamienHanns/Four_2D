@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody2D), typeof (FOV), typeof (CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(FOV), typeof(CircleCollider2D))]
 [RequireComponent(typeof(PolyNavAgent))]
-public class Charger : DestructableEnitity {
+public class Charger : DestructableEnitity
+{
 
     [SerializeField] Transform waypointHolder;
-    
+
     protected override void Start()
     {
         base.Start();
@@ -21,7 +22,7 @@ public class Charger : DestructableEnitity {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") || collision.gameObject.layer == LayerMask.NameToLayer("Nuteral"))
         {
             IDamageable damageableObject = collision.transform.GetComponent<IDamageable>();
             if (damageableObject != null)
@@ -31,19 +32,20 @@ public class Charger : DestructableEnitity {
         }
     }
 
-    public override void React(Reactor.ReactorType reactionType, int priorityOfReaction, Transform reactorTransform = null)
+    public override void React(Reactor.ReactorType reactionType, int priorityOfReaction, Transform transformToReactTo, Transform reactorTransform = null)
     {
-        //Decide what to react too
         if (priorityOfReaction > priorityOfCurrentReaction)
         {
             priorityOfCurrentReaction = priorityOfReaction;
 
+            if (!bIsReactiongToSomething) { bIsReactiongToSomething = true; }
+
             switch (reactionType)
             {
                 case Reactor.ReactorType.Alarm:
-                    //check if you want to respond to the reactor, use a priority system like def.con
-                    //call transition to react to alarm state. 
-
+                    stateController.priorityOOI = transformToReactTo;
+                    stateController.TransitionToState(reactAlarmState);
+                    print(stateController.priorityOOI);
                     break;
             }
         }

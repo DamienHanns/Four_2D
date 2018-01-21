@@ -6,4 +6,5 @@ using UnityEngine;
 public class TimerStats : ScriptableObject {
     public float stallTime;
     public float findTargetStallTime;
+    public float alarmTimeTotal;
 }
