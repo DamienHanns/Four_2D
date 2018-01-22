@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Decisions/AttackDistance")]
-public class AttakDistanceDecision : Decision {
+[CreateAssetMenu(menuName = "PluggableAI/Decisions/WithinAttackRange")]
+public class WithinAttackRangeDecision : Decision
+{
 
     public override bool Decide(StateController controller)
     {
@@ -21,10 +22,11 @@ public class AttakDistanceDecision : Decision {
         {
             return true;
         }
-        else if (disToOOI < controller.entityStats.attackingStats.rangedAttackRange) 
+        else if (disToOOI < controller.entityStats.attackingStats.rangedAttackRange)
         {
             return true;
-        } else
+        }
+        else
         {
             return false;
         }

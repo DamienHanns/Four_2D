@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
   m_Name: AlarmDetectionState
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: e6daf9e1fa6972e46b229ef1a46f904a, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 5b8a5483e3be4924cbaae631e518d332, type: 2}
     trueState: {fileID: 11400000, guid: f16836874123ada4294aa00bbf6b6702, type: 2}

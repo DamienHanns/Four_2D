@@ -38,7 +38,6 @@ public class AlarmWithinRadiusAction : Action {
                         if (controller.fov.visableTagets.Count > 0)
                         {
                             Transform firstDetectedObject = controller.fov.visableTagets[0];
-                           
                             reactableObject.React(Reactor.ReactorType.Alarm, alarm.reactionPriorityValue, firstDetectedObject, controller.transform);
                         }
                     }

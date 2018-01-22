@@ -8,6 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: AttakDistanceDecision
-  m_EditorClassIdentifier: Assembly-CSharp::AttakDistanceDecision
+  m_Script: {fileID: 11500000, guid: 33f78b2bc7e38914baa29325350b175f, type: 3}
+  m_Name: WithinAttackRangeDecision
+  m_EditorClassIdentifier: 

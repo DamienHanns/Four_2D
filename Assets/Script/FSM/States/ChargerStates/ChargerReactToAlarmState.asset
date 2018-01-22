@@ -17,7 +17,7 @@ MonoBehaviour:
   - decision: {fileID: 11400000, guid: c865603afce4b1f43b776a6398a2f9be, type: 2}
     trueState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
     falseState: {fileID: 11400000, guid: 1406dbdb6e7f6d84dab797562a3df635, type: 2}
-  - decision: {fileID: 11400000, guid: 23d071c17cddb6f4f82dedb7cc216a24, type: 2}
-    trueState: {fileID: 11400000, guid: bb1ab4fd21aa3444a8976ff7160696e7, type: 2}
+  - decision: {fileID: 11400000, guid: 297057974c269ff4a81c8e1bf4f35111, type: 2}
+    trueState: {fileID: 11400000, guid: 689f214bf09679f4693d86ce816ca7b0, type: 2}
     falseState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
   stateIndicatorColour: {r: 0.63235295, g: 0.43148792, b: 0.13019033, a: 1}
