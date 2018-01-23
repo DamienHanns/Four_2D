@@ -35,6 +35,7 @@ public class AlarmWithinRadiusAction : Action {
                     IReactable reactableObject = objectsInAlarmSoundRadius[i].GetComponent<IReactable>();
                     if (reactableObject != null)
                     {
+                        //TODO add a raycast around here to limit distance or area that reactable object can me manipulated.
                         if (controller.fov.visableTagets.Count > 0)
                         {
                             Transform firstDetectedObject = controller.fov.visableTagets[0];
