@@ -4,15 +4,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(StateController))]
 public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
-    
-    public enum InvestagetionFound { Player, Neural, Enemy, SuspiciousObject };
-    public InvestagetionFound investagationFound;
 
     [SerializeField] protected EntityStats stats;
     [SerializeField] protected bool bActivateAIOnStart = true;
     [SerializeField] protected State startingState;
     [SerializeField] protected ReactionStates reactionStates;   //TODO assign this at the start
-    protected StateController stateController;
+    protected StateController controller;
 
     protected bool bIsReactiongToSomething;
     protected int priorityOfCurrentReaction;
@@ -25,13 +22,14 @@ public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
         else { Debug.Log(gameObject.name + ": Has no stats object attached"); }
 
         if (startingState == null) { Debug.Log(gameObject.name + ": Has no startingState object attached"); }
+        if (reactionStates == null) { Debug.Log(gameObject.name + ": Has no reactionStates object attached"); }
 
-        stateController = GetComponent<StateController>();
+        controller = GetComponent<StateController>();
     }
 
     protected virtual void SetupStateContoller()
     {
-        stateController.SetupStateController(stats, startingState);
+        controller.SetupStateController(stats, startingState, reactionStates);
     }
 
     public void TakeDamage(float damage)

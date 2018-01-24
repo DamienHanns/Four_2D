@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
-  m_Name: ChargerInvestagateSuspiciousObjectState
+  m_Name: AlarmTrippedState
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 0f7abe6cf75cef04db1f751b6be35fb9, type: 2}
+  - {fileID: 0}
   transitions: []
   stateIndicatorColour: {r: 0, g: 0, b: 0, a: 0}

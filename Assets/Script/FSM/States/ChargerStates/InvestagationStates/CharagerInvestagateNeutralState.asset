@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
   m_Name: CharagerInvestagateNeutralState
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: 2fe9392a702c49345aa5f6b5bb93cad1, type: 2}
   transitions: []
   stateIndicatorColour: {r: 0, g: 0, b: 0, a: 0}

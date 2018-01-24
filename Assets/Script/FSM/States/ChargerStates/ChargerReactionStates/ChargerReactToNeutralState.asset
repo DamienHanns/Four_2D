@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Name: ChargerReactToNeutralState
   m_EditorClassIdentifier: 
   actions: []
-  transitions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: c438cbd9f2ef301478417f3a93d7fb49, type: 2}
+    trueState: {fileID: 11400000, guid: af10c7e15fcaaf34b99815e0c4f26958, type: 2}
+    falseState: {fileID: 11400000, guid: 1406dbdb6e7f6d84dab797562a3df635, type: 2}
   stateIndicatorColour: {r: 0.18039216, g: 0.47843137, b: 0.26666668, a: 1}

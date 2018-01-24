@@ -8,6 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b9571a68ee3cf42811762923827a66, type: 3}
-  m_Name: InvestagateAction
+  m_Script: {fileID: 11500000, guid: 7dc51463ddf281c4da0d5c48e74084c4, type: 3}
+  m_Name: InvestagateSuspiciousObjectAction
   m_EditorClassIdentifier: 

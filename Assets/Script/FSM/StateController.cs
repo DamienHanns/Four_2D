@@ -27,7 +27,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     [HideInInspector] public Rigidbody2D myrb;
 
     public bool bHasStatedAction;
-    [HideInInspector] public bool bPrimaryStateActionFinished;
+    public bool bPrimaryStateActionFinished;
 
     [HideInInspector] float stateTimeElapsed;
     [HideInInspector] public FOV fov;

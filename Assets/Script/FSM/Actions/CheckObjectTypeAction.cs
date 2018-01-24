@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(menuName = "PluggableAI/Actions/Investage")]
-public class InvestagateAction : Action
+[CreateAssetMenu(menuName = "PluggableAI/Actions/CheckObjectType")]
+public class CheckObjectTypeAction : Action
 {
     public override void Act(StateController controller)
     {
