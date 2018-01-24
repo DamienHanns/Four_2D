@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
-  m_Name: ChargerPatrolState
+  m_Name: ChargerReactToSuspicousObjectState
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 173b1754f72d6264faba04192200b0f8, type: 2}
+  - {fileID: 11400000, guid: 688b7a660f5abbd4095b75d0f25f5721, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: 45f16580cbaf13e4cb49a503e8a182e7, type: 2}
-    trueState: {fileID: 11400000, guid: ba111a516adc5c9439f1441f1eb95401, type: 2}
+  - decision: {fileID: 11400000, guid: 0fe9e5be96ff3bf4dbbeb424d012bf75, type: 2}
+    trueState: {fileID: 11400000, guid: 950848328c4ab1742bd18612b244aff1, type: 2}
     falseState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
-  stateIndicatorColour: {r: 0.060553633, g: 0.5147059, b: 0.101270616, a: 1}
+  stateIndicatorColour: {r: 0, g: 0, b: 0, a: 0}

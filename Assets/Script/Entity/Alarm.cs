@@ -21,16 +21,14 @@ public class Alarm : DestructableEnitity {
 
     StateController controller;
     SpriteRenderer spriteRenderer; Color detectionColour;
-    FOV fOV;
 
     protected override void Start()
     {
         base.Start();
         controller = GetComponent<StateController>();
         controller.SetupStateController(true);
-        fOV = GetComponent<FOV>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteRenderer.transform.localScale =  new Vector3 (fOV.viewRadius * 2, fOV.viewRadius * 2, 0);
+        spriteRenderer.transform.localScale =  new Vector3 (controller.fov.viewRadius * 2, controller.fov.viewRadius * 2, 0);
         detectionColour = spriteRenderer.color;
         stateController.SetupStateController(stats, startingState);
     }

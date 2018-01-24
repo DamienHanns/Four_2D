@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(PolyNavAgent))]
 public class Charger : DestructableEnitity
 {
-
     [SerializeField] Transform waypointHolder;
 
     protected override void Start()
@@ -17,7 +16,7 @@ public class Charger : DestructableEnitity
 
     protected override void SetupStateContoller()
     {
-        stateController.SetupStateController(bActivateAIOnStart, stats, startingState, waypointHolder);
+        stateController.SetupStateController(bActivateAIOnStart, stats, startingState, reactionStates, waypointHolder);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -32,6 +31,8 @@ public class Charger : DestructableEnitity
         }
     }
 
+
+    //TODO put this into a State. Make a ReactToSomething decision
     public override void React(Reactor.ReactorType reactionType, int priorityOfReaction, Transform transformToReactTo, Transform reactorTransform = null)
     {
         if (priorityOfReaction > priorityOfCurrentReaction)
@@ -44,10 +45,11 @@ public class Charger : DestructableEnitity
             {
                 case Reactor.ReactorType.Alarm:
                     stateController.priorityOOI = transformToReactTo;
-                    stateController.TransitionToState(reactAlarmState);
+                    stateController.TransitionToState(reactionStates.reactToAlarmState);
                     print(stateController.priorityOOI);
                     break;
             }
         }
     }
+    
 }

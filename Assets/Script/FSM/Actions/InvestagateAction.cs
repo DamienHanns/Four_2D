@@ -8,20 +8,60 @@ public class InvestagateAction : Action
 {
     public override void Act(StateController controller)
     {
-        if (!controller.bPrimaryStateActionFinished)
+        if (!controller.bHasStatedAction)
         {
             Investagate(controller);
         }
     }
 
-    void Investagate(StateController contoller)
+    void Investagate(StateController controller)
     {
-        //call Investagation method, on Enitity script.
-        //go within range of object to investage
-            //set a bool / list as to not investagate the same object twice.
-            //check what the thing is.
-                //if player goto state X
-                //if neutral and living goto state Y
-                //if just a suspicioius object state  Z
+        controller.bHasStatedAction = true;
+        CheckOOIs(controller);        // TODO ?? pass a priority value into the investagting object. A low value ??
+    }
+
+    void CheckOOIs(StateController controller)
+    {
+        foreach (Transform target in controller.fov.visableTagets)
+        {
+            if (target != null)
+            {
+                if (LayerMask.NameToLayer("Player") == target.gameObject.layer)
+                {
+                    controller.priorityOOI = target;
+                    if (controller.reactionStates.reactToPlayerState != null)
+                    {
+                        controller.TransitionToState(controller.reactionStates.reactToPlayerState);
+                    }
+                    else { Debug.LogWarning("Player reaction state not assisned on: " + controller.name); }
+
+                    break;
+                }
+
+                else if (LayerMask.NameToLayer("Neutral") == target.gameObject.layer)
+                {
+                    controller.priorityOOI = target;
+                    if (controller.reactionStates.reactToNeutralState != null)
+                    {
+                        controller.TransitionToState(controller.reactionStates.reactToNeutralState);
+                    }
+                    else { Debug.LogWarning("Neutral reaction state not assisned on: " + controller.name); }
+
+                    break;
+                }
+
+                else if (LayerMask.NameToLayer("SuspiciousObject") == target.gameObject.layer)
+                {
+                    controller.priorityOOI = target;
+                    if (controller.reactionStates.reactToSuspiciousObjectState != null)
+                    {
+                        controller.TransitionToState(controller.reactionStates.reactToSuspiciousObjectState);
+                    }
+                    else { Debug.LogWarning("Suspicious reaction state not assisned on: " + controller.name); }
+
+                    break;
+                }
+            }
+        }
     }
 }

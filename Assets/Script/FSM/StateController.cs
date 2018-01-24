@@ -7,24 +7,32 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     public delegate void OnExitState();     
     public event OnExitState onExitState;
 
+#region States data
     public EntityStats entityStats;
     public State currentState;
     public State remainInState;
+    public ReactionStates reactionStates; 
     public Transform stateIndicatorHolder;
+    #endregion
 
-    [HideInInspector] public Rigidbody2D myrb;
+#region pathfinding / waypoints data
     [HideInInspector] public PolyNavAgent agent;
     [HideInInspector] public Vector3[] waypoints;
     [HideInInspector] public int nextWaypointIndex = 0;
     public bool bIsCyclicalPath;
     [HideInInspector] public bool bHasPath;
-     public bool bHasStatedAction;
-    [HideInInspector] public bool bPrimaryStateActionFinished;
     public Transform waypointHolder;
+#endregion
+
+    [HideInInspector] public Rigidbody2D myrb;
+
+    public bool bHasStatedAction;
+    [HideInInspector] public bool bPrimaryStateActionFinished;
 
     [HideInInspector] float stateTimeElapsed;
     [HideInInspector] public FOV fov;
     [HideInInspector] public Transform priorityOOI;
+
     public bool bStateControllerActive;
 
     private void Start()
@@ -43,17 +51,18 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
         currentState.ExecuteState(this);
 	}
 
-    public void SetupStateController(bool bActivateStateController, EntityStats objectStats, State state, Transform _waypointHolder = null, bool bPutWaypointsIntoArray = true)
+#region
+    public void SetupStateController(bool bActivateStateController, EntityStats objectStats, State state, ReactionStates _reactionStates, Transform _waypointHolder = null, bool bPutWaypointsIntoArray = true)
     {
         bStateControllerActive = bActivateStateController;
         entityStats = objectStats;
+        reactionStates = _reactionStates;
         waypointHolder = _waypointHolder;
         if (bPutWaypointsIntoArray) { GetWaypoints(); }
 
         currentState = state;
         TransitionToState(state);
     }
-    #region SetupStateControllerMethods
 
     public void SetupStateController(Transform _waypointHolder, bool bPutWaypointsIntoArray = true)
     {
@@ -69,8 +78,9 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
         bStateControllerActive = bActivateStateController;
     }
 
-    public void SetupStateController(EntityStats objectStats, State state, bool bActivateStateController = true)
+    public void SetupStateController(EntityStats objectStats, State state, ReactionStates _reactionStates, bool bActivateStateController = true)
     {
+        reactionStates = _reactionStates;
         SetupStateController(objectStats, bActivateStateController);
         currentState = state;
         TransitionToState(state);
@@ -81,8 +91,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
         entityStats = objectStats;
         bStateControllerActive = bActivateStateController;
     }
-
-    #endregion
+#endregion
 
     public void TransitionToState(State nextState)
     {

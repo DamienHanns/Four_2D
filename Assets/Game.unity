@@ -208,11 +208,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4646995538182578, guid: 6a3ce8d914af50047bb09e03548d0176, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.54
+      value: 4.06
       objectReference: {fileID: 0}
     - target: {fileID: 4646995538182578, guid: 6a3ce8d914af50047bb09e03548d0176, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9.4
+      value: -7.48
       objectReference: {fileID: 0}
     - target: {fileID: 4646995538182578, guid: 6a3ce8d914af50047bb09e03548d0176, type: 2}
       propertyPath: m_LocalPosition.z
@@ -433,16 +433,17 @@ MonoBehaviour:
   entityStats: {fileID: 0}
   currentState: {fileID: 0}
   remainInState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
+  reactionStates: {fileID: 0}
   stateIndicatorHolder: {fileID: 0}
-  myrb: {fileID: 0}
   agent: {fileID: 0}
   waypoints: []
   nextWaypointIndex: 0
   bIsCyclicalPath: 0
   bHasPath: 0
+  waypointHolder: {fileID: 0}
+  myrb: {fileID: 0}
   bHasStatedAction: 1
   bPrimaryStateActionFinished: 0
-  waypointHolder: {fileID: 0}
   fov: {fileID: 0}
   priorityOOI: {fileID: 0}
   bStateControllerActive: 0
@@ -457,11 +458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9b9808892d1124e9cb2195f88d99e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  investagationFound: 0
   stats: {fileID: 11400000, guid: 358e0949e31b29142a6adda193d13feb, type: 2}
   bActivateAIOnStart: 1
   startingState: {fileID: 11400000, guid: 0f383e5e705c3b740b162aff79cdc056, type: 2}
-  reactAlarmState: {fileID: 0}
-  reactInvestageState: {fileID: 0}
+  reactionStates: {fileID: 0}
   alarmPhase: 2
   reactionPriorityValue: 2
   objectsToAlertMask:
@@ -1342,6 +1343,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1035429229802416, guid: d59f186d768c7284c913550618930a0a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d59f186d768c7284c913550618930a0a, type: 2}
   m_IsPrefabParent: 0
@@ -1432,16 +1437,17 @@ MonoBehaviour:
   entityStats: {fileID: 0}
   currentState: {fileID: 0}
   remainInState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
+  reactionStates: {fileID: 11400000, guid: 2c2bfbd7c1ca3f140b56aea9786b5b63, type: 2}
   stateIndicatorHolder: {fileID: 461154719}
-  myrb: {fileID: 0}
   agent: {fileID: 0}
   waypoints: []
   nextWaypointIndex: 0
   bIsCyclicalPath: 0
   bHasPath: 0
+  waypointHolder: {fileID: 2110407836}
+  myrb: {fileID: 0}
   bHasStatedAction: 0
   bPrimaryStateActionFinished: 0
-  waypointHolder: {fileID: 2110407836}
   fov: {fileID: 0}
   priorityOOI: {fileID: 0}
   bStateControllerActive: 0
@@ -1535,11 +1541,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7994d4c5c93014688dd2952fc5bffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  investagationFound: 0
   stats: {fileID: 11400000, guid: dc17d10e67dee274588e0ae7d672d2e8, type: 2}
   bActivateAIOnStart: 1
   startingState: {fileID: 11400000, guid: e32388735daf93248b998e9aee89c3c4, type: 2}
-  reactAlarmState: {fileID: 11400000, guid: 0b5f5ed87845f5749b4cac972d8ee5a5, type: 2}
-  reactInvestageState: {fileID: 0}
+  reactionStates: {fileID: 0}
   waypointHolder: {fileID: 2110407836}
 --- !u!1 &2110407835
 GameObject:

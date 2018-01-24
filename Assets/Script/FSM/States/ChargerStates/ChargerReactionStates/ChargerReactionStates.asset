@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a62fe8364e75f4785ec8cb580143e2, type: 3}
+  m_Name: ChargerReactionStates
+  m_EditorClassIdentifier: 
+  reactToPlayerState: {fileID: 11400000, guid: 6650e64d09cdad243ac69f830e96287e, type: 2}
+  reactToSuspiciousObjectState: {fileID: 11400000, guid: 167c9c703becd304c85838828fcaf95d,
+    type: 2}
+  reactToNeutralState: {fileID: 11400000, guid: d156f6fb3c3d6494990dba06151cfd14,
+    type: 2}
+  reactToAlarmState: {fileID: 11400000, guid: 0b5f5ed87845f5749b4cac972d8ee5a5, type: 2}
+  stopReactingState: {fileID: 11400000, guid: 1406dbdb6e7f6d84dab797562a3df635, type: 2}

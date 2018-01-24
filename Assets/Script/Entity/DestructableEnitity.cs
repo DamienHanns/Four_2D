@@ -4,12 +4,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(StateController))]
 public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
+    
+    public enum InvestagetionFound { Player, Neural, Enemy, SuspiciousObject };
+    public InvestagetionFound investagationFound;
 
     [SerializeField] protected EntityStats stats;
     [SerializeField] protected bool bActivateAIOnStart = true;
     [SerializeField] protected State startingState;
-    [SerializeField] protected State reactAlarmState;
-    [SerializeField] protected State reactInvestageState;
+    [SerializeField] protected ReactionStates reactionStates;   //TODO assign this at the start
     protected StateController stateController;
 
     protected bool bIsReactiongToSomething;
@@ -51,6 +53,11 @@ public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
     public void SetPriorityOfCurrentReactionValue(int valueToSetTo)
     {
         priorityOfCurrentReaction = valueToSetTo;
+    }
+
+    public virtual void Investage()
+    {
+        Debug.Log("investagtion called, but method not extended on: " + gameObject.name);
     }
 
     public virtual void React(Reactor.ReactorType reactionType, int priorityOfReaction, Transform reactorTransform = null)
