@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20a62fe8364e75f4785ec8cb580143e2, type: 3}
-  m_Name: ChargerReactionStates
+  m_Name: _ChargerReactionStatesContainer
   m_EditorClassIdentifier: 
   reactToPlayerState: {fileID: 11400000, guid: 6650e64d09cdad243ac69f830e96287e, type: 2}
   reactToSuspiciousObjectState: {fileID: 11400000, guid: 167c9c703becd304c85838828fcaf95d,

@@ -16,7 +16,7 @@ public class Charger : DestructableEnitity
 
     protected override void SetupStateContoller()
     {
-        controller.SetupStateController(bActivateAIOnStart, stats, startingState, reactionStates, waypointHolder);
+        controller.SetupStateController(bActivateAIOnStart, stats, startingState, reactionStatesContainer, waypointHolder);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,7 +45,7 @@ public class Charger : DestructableEnitity
             {
                 case Reactor.ReactorType.Alarm:
                     controller.priorityOOI = transformToReactTo;
-                    controller.TransitionToState(reactionStates.reactToAlarmState);
+                    controller.TransitionToState(reactionStatesContainer.reactToAlarmState);
                     print(controller.priorityOOI);
                     break;
             }

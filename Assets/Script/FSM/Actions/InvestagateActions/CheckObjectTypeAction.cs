@@ -16,10 +16,10 @@ public class CheckObjectTypeAction : Action
     void Investagate(StateController controller)
     {
         controller.bHasStatedAction = true;
-        CheckOOIs(controller);        // TODO ?? pass a priority value into the investagting object. A low value ??
+        CheckOOIs(controller);     
     }
 
-    void CheckOOIs(StateController controller)
+    void CheckOOIs(StateController controller)      //check list in FOV script for what needs to be reacted to
     {
         foreach (Transform target in controller.fov.visableTagets)
         {
@@ -28,9 +28,9 @@ public class CheckObjectTypeAction : Action
                 if (LayerMask.NameToLayer("Player") == target.gameObject.layer)
                 {
                     controller.priorityOOI = target;
-                    if (controller.reactionStates.reactToPlayerState != null)
+                    if (controller.reactionStatesContainer.reactToPlayerState != null)
                     {
-                        controller.TransitionToState(controller.reactionStates.reactToPlayerState);
+                        controller.TransitionToState(controller.reactionStatesContainer.reactToPlayerState);
                     }
                     else { Debug.LogWarning("Player reaction state not assisned on: " + controller.name); }
 
@@ -40,9 +40,9 @@ public class CheckObjectTypeAction : Action
                 else if (LayerMask.NameToLayer("Neutral") == target.gameObject.layer)
                 {
                     controller.priorityOOI = target;
-                    if (controller.reactionStates.reactToNeutralState != null)
+                    if (controller.reactionStatesContainer.reactToNeutralState != null)
                     {
-                        controller.TransitionToState(controller.reactionStates.reactToNeutralState);
+                        controller.TransitionToState(controller.reactionStatesContainer.reactToNeutralState);
                     }
                     else { Debug.LogWarning("Neutral reaction state not assisned on: " + controller.name); }
 
@@ -52,9 +52,9 @@ public class CheckObjectTypeAction : Action
                 else if (LayerMask.NameToLayer("SuspiciousObject") == target.gameObject.layer)
                 {
                     controller.priorityOOI = target;
-                    if (controller.reactionStates.reactToSuspiciousObjectState != null)
+                    if (controller.reactionStatesContainer.reactToSuspiciousObjectState != null)
                     {
-                        controller.TransitionToState(controller.reactionStates.reactToSuspiciousObjectState);
+                        controller.TransitionToState(controller.reactionStatesContainer.reactToSuspiciousObjectState);
                     }
                     else { Debug.LogWarning("Suspicious reaction state not assisned on: " + controller.name); }
 

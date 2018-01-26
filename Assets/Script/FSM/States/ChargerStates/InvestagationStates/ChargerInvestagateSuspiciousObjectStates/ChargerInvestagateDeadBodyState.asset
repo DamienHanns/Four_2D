@@ -9,9 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735db2039475a8044966bca3d826c6d6, type: 3}
-  m_Name: ChargerInvestagateSuspiciousObjectState
+  m_Name: ChargerInvestagateDeadBodyState
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 0f7abe6cf75cef04db1f751b6be35fb9, type: 2}
-  transitions: []
+  - {fileID: 11400000, guid: 0480c8ae2595cbc4bacd198f4b7d6b71, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 0fe9e5be96ff3bf4dbbeb424d012bf75, type: 2}
+    trueState: {fileID: 11400000, guid: e32388735daf93248b998e9aee89c3c4, type: 2}
+    falseState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
   stateIndicatorColour: {r: 0, g: 0, b: 0, a: 0}

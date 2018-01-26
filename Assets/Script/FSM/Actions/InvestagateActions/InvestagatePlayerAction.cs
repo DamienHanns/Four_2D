@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Actions/InvestagateNeutral")]
-public class InvestagateNeutralAction : Action
+[CreateAssetMenu(menuName = "PluggableAI/Actions/InvestagatePlayer")]
+public class InvestagatePlayerAction : Action
 {
 
     public override void Act(StateController controller)
@@ -16,8 +16,9 @@ public class InvestagateNeutralAction : Action
 
     void Investagate(StateController controller)
     {
-        //Type of neutral?
-        //should the neutral be there?
+        Debug.Log("Player is being investagated");
+        //is it the attual player avater or somehting else
+        //should the be there?
         //if not which remedy should be appllied?
         //how hostile should the player be treated
     }

@@ -11,7 +11,8 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     public EntityStats entityStats;
     public State currentState;
     public State remainInState;
-    public ReactionStates reactionStates; 
+    public ReactionStates reactionStatesContainer;
+    public InvestagateSOStates investagateSOStatesContainer;
     public Transform stateIndicatorHolder;
     #endregion
 
@@ -56,7 +57,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
     {
         bStateControllerActive = bActivateStateController;
         entityStats = objectStats;
-        reactionStates = _reactionStates;
+        reactionStatesContainer = _reactionStates;
         waypointHolder = _waypointHolder;
         if (bPutWaypointsIntoArray) { GetWaypoints(); }
 
@@ -80,7 +81,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
     public void SetupStateController(EntityStats objectStats, State state, ReactionStates _reactionStates, bool bActivateStateController = true)
     {
-        reactionStates = _reactionStates;
+        reactionStatesContainer = _reactionStates;
         SetupStateController(objectStats, bActivateStateController);
         currentState = state;
         TransitionToState(state);

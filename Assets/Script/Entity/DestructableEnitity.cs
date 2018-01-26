@@ -8,7 +8,7 @@ public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
     [SerializeField] protected EntityStats stats;
     [SerializeField] protected bool bActivateAIOnStart = true;
     [SerializeField] protected State startingState;
-    [SerializeField] protected ReactionStates reactionStates;   //TODO assign this at the start
+    [SerializeField] protected ReactionStates reactionStatesContainer;   //TODO assign this at the start
     protected StateController controller;
 
     protected bool bIsReactiongToSomething;
@@ -22,14 +22,14 @@ public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
         else { Debug.Log(gameObject.name + ": Has no stats object attached"); }
 
         if (startingState == null) { Debug.Log(gameObject.name + ": Has no startingState object attached"); }
-        if (reactionStates == null) { Debug.Log(gameObject.name + ": Has no reactionStates object attached"); }
+        if (reactionStatesContainer == null) { Debug.Log(gameObject.name + ": Has no reactionStates object attached"); }
 
         controller = GetComponent<StateController>();
     }
 
     protected virtual void SetupStateContoller()
     {
-        controller.SetupStateController(stats, startingState, reactionStates);
+        controller.SetupStateController(stats, startingState, reactionStatesContainer);
     }
 
     public void TakeDamage(float damage)
