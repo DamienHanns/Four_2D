@@ -208,11 +208,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4646995538182578, guid: 6a3ce8d914af50047bb09e03548d0176, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.99
+      value: -6.1
       objectReference: {fileID: 0}
     - target: {fileID: 4646995538182578, guid: 6a3ce8d914af50047bb09e03548d0176, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.23
+      value: -7.88
       objectReference: {fileID: 0}
     - target: {fileID: 4646995538182578, guid: 6a3ce8d914af50047bb09e03548d0176, type: 2}
       propertyPath: m_LocalPosition.z
@@ -252,6 +252,11 @@ Prefab:
         type: 2}
       propertyPath: moveSpeed
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 114486569123829532, guid: 6a3ce8d914af50047bb09e03548d0176,
+        type: 2}
+      propertyPath: objectReactionValue
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a3ce8d914af50047bb09e03548d0176, type: 2}
@@ -444,6 +449,7 @@ MonoBehaviour:
   waypointHolder: {fileID: 0}
   myrb: {fileID: 0}
   bHasStatedAction: 0
+  bIsCheckingForHighierPriorities: 0
   bPrimaryStateActionFinished: 0
   fov: {fileID: 0}
   priorityOOI: {fileID: 0}
@@ -462,7 +468,10 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 358e0949e31b29142a6adda193d13feb, type: 2}
   bActivateAIOnStart: 1
   startingState: {fileID: 11400000, guid: 0f383e5e705c3b740b162aff79cdc056, type: 2}
-  reactionStates: {fileID: 11400000, guid: aef4dae16fccd10488442f0edb63e0e8, type: 2}
+  reactionStatesContainer: {fileID: 11400000, guid: aef4dae16fccd10488442f0edb63e0e8,
+    type: 2}
+  priorityOfCurrentReaction: 0
+  objectReactionValue: 0
   alarmPhase: 2
   reactionPriorityValue: 2
   objectsToAlertMask:
@@ -686,6 +695,8 @@ GameObject:
   m_Component:
   - component: {fileID: 578815481}
   - component: {fileID: 578815480}
+  - component: {fileID: 578815483}
+  - component: {fileID: 578815482}
   m_Layer: 12
   m_Name: SuspiciosObject
   m_TagString: DeadBody
@@ -702,7 +713,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -732,6 +743,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578815482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578815479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45aaa0bdcf504b48add8510a47b998e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  bActivateAIOnStart: 1
+  startingState: {fileID: 0}
+  reactionStatesContainer: {fileID: 0}
+  priorityOfCurrentReaction: 0
+  objectReactionValue: 1
+--- !u!114 &578815483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578815479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4907a0001f90e43a90f5b6a8358683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityStats: {fileID: 0}
+  currentState: {fileID: 0}
+  remainInState: {fileID: 0}
+  reactionStatesContainer: {fileID: 0}
+  investagateSOStatesContainer: {fileID: 0}
+  stateIndicatorHolder: {fileID: 0}
+  agent: {fileID: 0}
+  waypoints: []
+  nextWaypointIndex: 0
+  bIsCyclicalPath: 0
+  bHasPath: 0
+  waypointHolder: {fileID: 0}
+  myrb: {fileID: 0}
+  bHasStatedAction: 0
+  bIsCheckingForHighierPriorities: 0
+  bPrimaryStateActionFinished: 0
+  fov: {fileID: 0}
+  priorityOOI: {fileID: 0}
+  bStateControllerActive: 0
 --- !u!1 &606669970
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +1025,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 914055094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.29, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 578815481}
@@ -1450,6 +1508,7 @@ MonoBehaviour:
   waypointHolder: {fileID: 2110407836}
   myrb: {fileID: 0}
   bHasStatedAction: 0
+  bIsCheckingForHighierPriorities: 0
   bPrimaryStateActionFinished: 0
   fov: {fileID: 0}
   priorityOOI: {fileID: 0}
@@ -1547,7 +1606,10 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: dc17d10e67dee274588e0ae7d672d2e8, type: 2}
   bActivateAIOnStart: 1
   startingState: {fileID: 11400000, guid: e32388735daf93248b998e9aee89c3c4, type: 2}
-  reactionStates: {fileID: 11400000, guid: 2c2bfbd7c1ca3f140b56aea9786b5b63, type: 2}
+  reactionStatesContainer: {fileID: 11400000, guid: 2c2bfbd7c1ca3f140b56aea9786b5b63,
+    type: 2}
+  priorityOfCurrentReaction: 0
+  objectReactionValue: 2
   waypointHolder: {fileID: 2110407836}
 --- !u!1 &2110407835
 GameObject:

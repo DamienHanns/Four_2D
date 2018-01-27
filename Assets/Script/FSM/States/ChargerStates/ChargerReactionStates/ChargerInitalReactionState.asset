@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Name: ChargerInitalReactionState
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: cc1500f44ade05d4aacce09011795894, type: 2}
-  transitions: []
+  - {fileID: 11400000, guid: ab68de3d1e40cf7438620dbe1eabd085, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 45f16580cbaf13e4cb49a503e8a182e7, type: 2}
+    trueState: {fileID: 11400000, guid: 9297f3faff49d9d438475e3b8066fb5c, type: 2}
+    falseState: {fileID: 11400000, guid: e32388735daf93248b998e9aee89c3c4, type: 2}
   stateIndicatorColour: {r: 0, g: 0, b: 0, a: 0}

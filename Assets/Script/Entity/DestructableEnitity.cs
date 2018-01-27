@@ -12,7 +12,8 @@ public class DestructableEnitity : MonoBehaviour, IDamageable, IReactable {
     protected StateController controller;
 
     protected bool bIsReactiongToSomething;
-    protected int priorityOfCurrentReaction;
+    public int priorityOfCurrentReaction = 0;
+    [Range (1, 10)]public int objectReactionValue = 1;
 
     protected float currentHealth = 1.0f;
 

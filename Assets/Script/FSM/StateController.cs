@@ -27,7 +27,7 @@ public class StateController : MonoBehaviour {          //TODO use statecontolle
 
     [HideInInspector] public Rigidbody2D myrb;
 
-    public bool bHasStatedAction;
+    public bool bHasStatedAction, bIsCheckingForHighierPriorities;
     public bool bPrimaryStateActionFinished;
 
     [HideInInspector] float stateTimeElapsed;
